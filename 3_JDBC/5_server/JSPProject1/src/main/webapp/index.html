@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSP 프로젝트</title>
+</head>
+<body>
+    <h3>GET 방식 요청</h3>
+
+    <form action="/JSPProject1/login" method="GET">
+        <!-- 
+            요청 주소 : /JSPProject/login
+            데이터 전달 방식 : get(주소 뒤에 데이터가 붙어서 전달됨)
+         -->
+
+         ID : <input type="text" name="inputId"><br>
+         PW : <input type="password" name="inputPw"><br>
+
+         <button type="submit">로그인</button>
+
+
+
+    </form>
+
+    <hr>
+
+    <h3>JSP 테스트</h3>
+    <form action="/JSPProject1/pizzaOrder" method="get">
+        피자 선택(1만원) : 
+        <select name="pizza">
+            <option>치즈 피자</option>
+            <option>고구마 피자</option>
+            <option>쉬림프 피자</option>
+            <option>콤비네이션 피자</option>
+            <option>시카고 피자</option>
+        </select>
+
+
+        <br><br>
+
+        사이즈(L 선택 시 2천원 추가) : 
+        <label>R<input type="radio" name="size" value="R"> </label>
+        <label>L<input type="radio" name="size" value="L"> </label>
+
+        <br><br>
+
+        수량 : <input type="number" name="amount"min=1 max="10" value="1">판
+
+        <button>주문하기</button>
+
+
+
+    </form>
+
+
+
+</body>
+</html>
