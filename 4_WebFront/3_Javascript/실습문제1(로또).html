@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또번호생성기</title>
+
+    <style>
+
+        #container{
+            display: flex;
+            width: 400px;
+            justify-content: space-around;
+
+            margin :100px auto 50px;
+        }
+
+        #container > div{
+            border:1px solid black;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 24px;
+            font-weight: bold;
+
+        }
+
+        #createLotto{
+            display: block;
+            width: 300px;
+            height: 30x;
+            margin: auto;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+    <div id="container">
+        <div ></div>
+        <div ></div>
+        <div ></div>
+        <div ></div>
+        <div ></div>
+        <div ></div>
+    </div>
+    
+    <button id="createLotto">로또 번호 생성기</button>
+
+
+    <script>
+        // 로또 번호 생성 시 1 ~ 45 난수 생성
+
+        // lotto에 저장된 난수 오름차순 정렬
+
+        // + 로또 번호 중복 X
+       
+        document.getElementById("createLotto").addEventListener("click",function(){
+
+            // #container 자식 div 6개 선택
+            const numbers = document.querySelectorAll("#container > div");
+
+            // 로또 번호를 저장할 배열 선언
+            const lotto = [];
+
+            while(lotto.length<6){ // lotto 배열에 저장된 값이 6개가 안되면 반복
+
+                // 1~45 난수 생성
+                const ran = Math.floor(Math.random()*45+1);
+
+                // console.log(ran);
+
+                // 생성된 난수가 배열에 있는지 검사
+                if(lotto.indexOf(ran) == -1){ //중복 X
+
+                    // 배열에 난수 추가
+                    lotto.push(ran);
+                    // console.log(ran);
+
+                }
+            }
+
+            // lotto에 저장된 난수 오름차순 정렬
+            lotto.sort(function(a,b){return a-b;});
+
+            // numbers의 인덱스별로 lotto 인덱스에 저장된 값 출력
+            for(let i=0;i<lotto.length;i++){
+                numbers[i].innerHTML = lotto[i];
+            }
+        })
+
+
+
+    </script>
+</body>
+</html>

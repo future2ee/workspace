@@ -1,0 +1,398 @@
+ @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+*{box-sizing: border-box;}
+/* div{ border: 1px solid black} */
+
+
+.container{
+    width: 1850px;
+    margin: auto;
+}
+
+.header{
+    background-color: rgb(250, 234, 215);
+    height: 130px;
+    display:flex;
+
+    font-family: 'Quicksand', sans-serif;
+}
+
+.header>div:nth-of-type(1){
+    flex-basis: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+.header>div:nth-of-type(2){
+    flex-basis: 70%;
+
+}
+
+
+
+
+
+
+.header-1{
+    width: 1500px ;
+
+
+    justify-content: flex-end;
+
+
+    display: flex;
+
+
+
+
+}
+
+.header1-1{
+    width: 700px ;
+    height: 50px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-evenly;
+  
+    align-content :space-evenly;
+
+    flex-direction: row;
+    
+ 
+
+
+}
+
+
+.header-2{
+
+    width: 1745px ;
+    height: 100;
+
+    display: flex;
+    flex-wrap: wrap;
+    
+    justify-content: center;
+    align-items: center;
+    align-content :space-evenly;
+
+    flex-direction: row;
+
+
+
+  
+    
+   
+}
+.header2-2{
+
+    width: 1745px ;
+    height: 100;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content : center;
+    justify-content: space-evenly;
+    flex-direction: row;
+
+
+    line-height: 70px;
+  
+    
+   
+}
+
+
+#starlogo{
+    width: 100px;
+    height: auto;
+
+}
+#search-btn{
+    width: 25px;
+    height: 25px;
+
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    border:1px solid rgb(224, 202, 202);
+    border-radius: 5px;
+
+   
+
+  
+
+}
+
+
+.content{
+    height: 300px;
+    display:flex;
+}
+
+#con-1{
+    position: relative;
+    width: 1850px;
+    height: 550px;
+
+}
+
+
+.button:hover{
+    width: 130px;
+    height: 50px;
+
+    border: 1px solid white;
+    background-color: rgb(236, 124, 124);
+    color: azure;
+    border-radius: 10px;
+
+    position: fixed;
+    top: 250px;
+    left: 475px;
+
+
+    cursor: pointer;
+
+
+}
+
+#button{
+
+    width: 130px;
+    height: 50px;
+
+    border: 1px solid white;
+    background-color: rgb(236, 124, 124);
+    color: azure;
+    border-radius: 10px;
+
+    position: fixed;
+    top: 460px;
+    left: 475px;
+
+
+    cursor: pointer;
+
+}
+
+
+
+
+#adver{
+    width: 1850px;
+    height: 550px;
+}
+
+
+.con-2{
+    display: flex;
+    
+    width: 1850px;
+    height: 50px;
+
+}
+
+#plus{
+    width: 45;
+    height: auto;
+}
+#down{
+    width: 45;
+    height: auto;
+}
+.con-2>div:nth-of-type(1){
+    display: flex;
+    flex-basis: 50%;
+
+    background-color: black;
+    color: white;
+
+    font-size: large;
+
+    justify-content: space-evenly;
+    line-height: 50px;
+
+
+}
+
+.con-2>div:nth-of-type(2){
+    display: flex;
+    flex-basis: 50%;
+
+    font-size: large;
+
+    justify-content: space-evenly;
+    line-height: 50px;
+
+
+}
+
+
+
+.footer{
+    height: 300px;
+    display: flex;
+
+    background-color: rgb(38, 53, 38);
+    color: white;
+
+    font-size: 18px;
+}
+
+
+.footer >.foot1{
+    display: flex;
+    flex-basis: 20%;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.footer>.foot2{
+    display: flex;
+    flex-basis: 50%;
+}
+
+.footer> .foot3{
+    display: flex;
+    flex-basis: 30%;
+}
+
+
+
+#logo2{
+    width: auto;
+    height: 200px;
+}
+
+
+.footer2>.footer1{
+    height:100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+
+}
+
+.footer2>.footer2{
+    height:50px;
+    display: flex;
+    justify-content: flex-start;
+
+    align-items: center;
+}
+
+
+.footer2>.footer3{
+    height:50px;
+    display: flex;
+    justify-content: flex-start;
+
+    align-items: center;
+}
+
+.footer3-1{
+    display: flex;
+    height:100px;
+    width: auto;
+
+}
+
+.footer3-2{
+    display:flex;
+    height:100px;
+    width: auto;
+
+}
+.footer3-3{
+    display:flex;
+    height:100px;
+    width: auto;
+
+}
+
+
+#btn{
+    width: 100px;
+    height: 50px;
+    background-color: green;
+    border-radius: 10px;
+    color: white;
+}
+#btnlogin{
+    width: 100px;
+    height: 50px;
+    background-color: rgb(38, 53, 38);
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+#btngift{
+    width: 200px;
+    height: 50px;
+    background-color: rgb(38, 53, 38);
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+
+
+
+/* fixed */
+.fixed-area{
+    width: 120px;
+
+    /* align : 맞추다, 정렬하다 */
+    text-align: center;
+
+    position: fixed;
+    /* fixed 요소느느 화면(뷰포트, 브라우저) 기준으로 배치됨
+       + 다른 요소와 겹쳐질 수 있고,
+         별도로 화면을 차지하려고 하지 않음
+    */
+
+    bottom: 50px;
+    right: 50px;
+}
+
+
+
+#slidebanner{
+    width: 150px;
+    height: 80px;
+    text-align: center;
+
+
+    position: fixed;
+
+    top: 170px;
+    right: 320px;
+
+
+}
+
+#slidebanner2{
+    width: 150px;
+    height: 80px;
+    text-align: center;
+
+
+    position: fixed;
+
+    top: 250px;
+    right: 320px;
+
+
+}
+

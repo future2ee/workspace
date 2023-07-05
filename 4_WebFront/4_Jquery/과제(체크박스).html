@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제(체크박스)</title>
+    <style>
+        div{
+            width: 600px;
+            height: 100px;
+            border:1px solid red;
+        }
+    </style>
+    <script src="js/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+    <h1>Practice1</h1>
+
+    <fieldset>
+        <legend>취미</legend>
+        <table>
+            
+            <tr> <!-- 1행 -->
+                <td>
+                    <input type="checkbox" name="allChk" onclick='selectAll(this)'> 전체 선택
+                </td>
+                <td>
+                    <input type="checkbox" name="chk" onclick='checkSelectAll()'> 종합
+                </td>
+                <td>
+                    <input type="checkbox" name="chk" onclick='checkSelectAll()'> 소설
+                </td>
+                <td>
+                    <input type="checkbox" name="chk" onclick='checkSelectAll()'> 시/에세이
+                </td>
+                <td>
+                    <input type="checkbox" name="chk" onclick='checkSelectAll()'> 경제/경영
+                </td>
+                <td>
+                    <input type="checkbox" name="chk" onclick='checkSelectAll()'> 자기계발
+                </td>
+                <td>
+                    <input type="checkbox" name="chk" onclick='checkSelectAll()'> 아동
+                </td>
+            </tr>
+    
+            <tr> <!-- 2행 -->
+                <td>
+    
+                </td>
+                <td>
+                    <input type="checkbox" name="chk" onclick='checkSelectAll()'> 여행
+                </td>
+                <td>
+                    <input type="checkbox" name="chk" onclick='checkSelectAll()'> 과학
+                </td>
+                <td>
+                    <input type="checkbox" name="chk" onclick='checkSelectAll()'> 역사/문화
+                </td>
+                <td>
+                    <input type="checkbox" name="chk" onclick='checkSelectAll()'> 외국어
+                </td>
+                <td>
+                    <input type="checkbox" name="chk" onclick='checkSelectAll()'> 컴퓨터
+                </td>
+                <td>
+                    <input type="checkbox" name="chk" onclick='checkSelectAll()'> 만화
+                </td>
+            </tr>
+
+        </table>
+
+    </fieldset>
+
+    <button id="btn">카테고리 선택</button>
+    <div id="result"></div>
+
+    <script src="js/과제(체크박스).js"></script>
+</body>
+</html>
