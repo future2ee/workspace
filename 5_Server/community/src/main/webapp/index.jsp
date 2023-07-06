@@ -80,7 +80,8 @@
 		                    <!-- 아이디 (이메일 형식)/ 비밀번호/ 로그인 버튼 영역 -->
 		                    <fieldset id="id-pw-area">
 		                        <section>
-		                            <input type="text" name="inputEmail" placeholder="아이디(이메일)">
+		                            <input type="text" name="inputEmail" placeholder="아이디(이메일)" value="${cookie.saveId.value}">
+                                                                                                        <%-- 현재 페이지 쿠키 중 "saveId"의 내용 출력--%>
 		                            <input type="password" name="inputPW" placeholder="비밀번호">
 		                        </section>
 		        
@@ -97,8 +98,17 @@
 		                        <a href="#">ID/PW 찾기</a>
 		                    </article>
 		
+                            <%-- 쿠키에 saveId가 있는 경우 --%>
+                            <c:if test="${!empty cookie.saveId.value}">
+
+                            <%-- chk 변수 생성(page Scope) --%>
+                            <c:set var="chk" value="checked"></c:set>
+
+                            </c:if>
+
+
 		                    <label>
-		                        <input type="checkbox">아이디 저장
+		                        <input type="checkbox" name="saveId" ${chk}>아이디 저장
 		                    </label>
 		                </form>
             		</c:when>
@@ -117,7 +127,7 @@
             					<div>
             						<a href="#" id="nickname">${loginMember.memberNickname}</a>
             						
-            						<a href="#" id="logout-btn">로그아웃</a>
+            						<a href="/community/member/logout" id="logout-btn">로그아웃</a>
             					</div>
 	            				<p>
 	            					${loginMember.memberEmail}
