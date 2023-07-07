@@ -11,6 +11,10 @@ import java.util.Properties;
 
 import edu.kh.community.member.model.vo.Member;
 
+/**
+ * @author user1
+ *
+ */
 public class MemberDAO {
 	
 	private Statement stmt;
@@ -78,5 +82,43 @@ public class MemberDAO {
 		
 		return loginMember; // null 또는 Member 객체 주소
 	}
+
+	/** 회원가입 DAO
+	 * @param conn
+	 * @param mem
+	 * @return result
+	 * @throws Exception
+	 */
+	public int signUp(Connection conn, Member mem) throws Exception {
+
+		int result = 0; // 결과 저장용 변수
+				
+		try {
+			// SQL 얻어오기
+			String sql = prop.getProperty("signUp");
+			// PreparedStatement 생성 및 SQL 적재
+			pstmt = conn.prepareStatement(sql);
+			
+			
+			pstmt.setString(1, mem.getMemberEmail());
+			pstmt.setString(2, mem.getMemberPw());
+			pstmt.setString(3, mem.getMemberNickname());
+			pstmt.setString(4, mem.getMemberTel());
+			pstmt.setString(5, mem.getMemberAddress());
+			
+			result = pstmt.executeUpdate();
+
+			
+		} finally {
+			
+			close(pstmt);
+			
+		}
+		
+		// 결과 반환
+		return result;
+	}
+
+
 
 }
