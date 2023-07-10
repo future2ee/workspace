@@ -71,7 +71,7 @@ document.getElementById("pw").addEventListener("keyup",function(){
 
     }else{
 
-        span.innerTest="비밀번호가 불일치";
+        span.innerText="비밀번호가 불일치";
         span.style.color="red";
 
     }
