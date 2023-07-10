@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet{
 		
 		// 전달된 파라미터 변수에 저장
 		String inputEmail = req.getParameter("inputEmail");
-		String inputPw = req.getParameter("inputPW");
+		String inputPw = req.getParameter("inputPw");
 		
 		System.out.println(inputEmail);
 		System.out.println(inputPw);
