@@ -119,6 +119,100 @@ public class MemberDAO {
 		return result;
 	}
 
+	/** 회원 정보 수정 DAO
+	 * @param conn
+	 * @param mem
+	 * @return result
+	 */
+	public int updateMember(Connection conn, Member mem) throws Exception {
+		
+		int result =0;
+		
+		try {
+			
+			String sql = prop.getProperty("updateMember");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, mem.getMemberNickname());
+			pstmt.setString(2, mem.getMemberTel());
+			pstmt.setString(3, mem.getMemberAddress());
+			pstmt.setInt(4, mem.getMemberNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	/** 비밀번호 변경 DAO
+	 * @param conn
+	 * @param currentPw
+	 * @param newPw
+	 * @param memberNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int changePw(Connection conn, String currentPw, String newPw, int memberNo) throws Exception {
+		
+		int result=0;
+		
+		try {
+			String sql = prop.getProperty("changePw");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, newPw);
+			pstmt.setInt(2, memberNo);
+			pstmt.setString(3, currentPw);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} finally {
+			// try - finally 왜 사용하는가?
+			// -> try 구문에서 JDBC 관련 예외가 발생하더라도
+			//    사용중이던 JDBC 객체 자원을 무조건 반환하기 위해서
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	/** 회원 탈퇴 DAO
+	 * @param conn
+	 * @param memberNo
+	 * @param memberPw
+	 * @return result
+	 * @throws Exception
+	 */
+	public int secession(Connection conn, int memberNo, String memberPw) throws Exception{
+		
+		int result =0;
+		
+		try {
+
+				String sql = prop.getProperty("secession");
+				
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1,memberNo );
+				pstmt.setString(2, memberPw);
+				
+				result = pstmt.executeUpdate();
+		
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		
+		
+		return result;
+	}
+
 
 
 }

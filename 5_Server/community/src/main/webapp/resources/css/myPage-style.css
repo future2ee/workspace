@@ -135,3 +135,19 @@ form[name="myPage-form"]{
     color: white;
     cursor: pointer;
 }
+
+/* 비밀번호 변경 */
+.myPage-row > input[type="password"]{
+	width : 70%;	
+}
+
+/* 회원 탈퇴 약관 */
+#secession-terms{
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+    font-size: 16px;
+
+    /* 내용을 지정한 사이즈를 초과한 방향의 스크롤을 자동 생성 */
+    overflow: auto;
+}
