@@ -41,21 +41,20 @@
                     http://localhost:8080/community/member/myPage/changePw (GET)
                  -->
 
-                <form action="changePw" method="POST" name="myPage-form">
+                <form action="changePw" method="POST" name="myPage-form" onsubmit="return changePwValidate()">
 
                     <div class="myPage-row">
                         <label>현재 비밀번호</label>
-                        <input type="password" name="currentPw" id="currnetPw" maxlength="30">
+                        <input type="password" name="currentPw" id="currentPw" maxlength="30">
                     </div>
-               
 
                     <div class="myPage-row">
                         <label>새 비밀번호</label>
-                        <input type="password" name="newPw" maxlength="30">
+                        <input type="password" name="newPw" id="nwPw" maxlength="30">
                     </div>
                     <div class="myPage-row">
                         <label>새 비밀번호 확인</label>
-                        <input type="password" name="newPwConfirm" maxlength="30">
+                        <input type="password" name="newPwConfirm" eid="newPwConfirm" maxlength="30">
                     </div>
 
                    
@@ -84,6 +83,7 @@
     
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-    
+    <!-- myPage.js 추가 -->
+    <script src="${contextPath}/resources/js/member/myPage.js"></script>
 </body>
 </html>
