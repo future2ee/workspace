@@ -113,12 +113,28 @@ public class MemberService {
 	 */
 	public int secession(int memberNo, String memberPw) throws Exception{
 		
-Connection conn = getConnection();
+		Connection conn = getConnection();
 		
 		int result = dao.secession(conn, memberNo, memberPw);
 		
 		if(result>0) commit(conn);
 		else		 rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+	/** 이메일 중복 검사 Service
+	 * @param memberEmail
+	 * @return result
+	 * @throws Exception
+	 */
+	public int emailDupCheck(String memberEmail) throws Exception {
+
+		Connection conn = getConnection();
+		
+		int result = dao.emailDupCheck(conn, memberEmail);
 		
 		close(conn);
 		
