@@ -34,7 +34,7 @@ public class emailDupCheckServlet extends HttpServlet {
 			// *** 비동기 통신 시 응답은 화면이 아닌 데이터(String, XML, JSON, int, ...)
 			// -> 응답용 스트림을 이용해서 단순 데이터 전달만 하면 된다
 			
-			resp.getWriter().print(result);;
+			resp.getWriter().print(result);
 			// 응답 스트림을 이용해 result를 출력
 			
 			
