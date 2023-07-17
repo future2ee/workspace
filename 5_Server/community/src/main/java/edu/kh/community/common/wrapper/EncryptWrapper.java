@@ -97,25 +97,5 @@ public class EncryptWrapper extends HttpServletRequestWrapper{
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
