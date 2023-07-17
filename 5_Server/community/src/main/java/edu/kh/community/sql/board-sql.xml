@@ -6,6 +6,6 @@
 	<!-- 게시판 이름 조회 -->
 	<entry key="selectBoardName">
 		SELECT BOARD_NM FROM BOARD_TYPE
-		WHERE BOARD-CD = ?
+		WHERE BOARD_CD=?
 	</entry>
 </properties>
