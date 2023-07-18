@@ -29,7 +29,7 @@ public class BoardListServlet extends HttpServlet{
 			int cp = 1;
 			
 			// 페이지네이션 번호 선택 시
-			// 쿼리스트링에 cp가 있음 -->cp = 쿼리스트링의 cp의 값 
+			// 쿼리스트링에 cp가 있음 --> cp = 쿼리스트링의 cp의 값 
 			if(req.getParameter("cp")!= null) {	//쿼리스트링에 "cp"가 존재한다
 				cp = Integer.parseInt(req.getParameter("cp"));
 			}
@@ -39,10 +39,10 @@ public class BoardListServlet extends HttpServlet{
 			
 			// 게시판 이름, 페이지네이션 객체, 게시글 리스트를 한 번에 반환하는 Service  호출
 			Map<String, Object> map = service.selectBoardList(type,cp);
+
 			
-			
-			
-			
+			//request 범위로 map을 세팅
+			req.setAttribute("map", map);
 			
 			String path = "/WEB-INF/views/board/boardList.jsp";
 			
