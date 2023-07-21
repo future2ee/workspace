@@ -30,8 +30,8 @@
 
                     <c:if test="${loginMember.memberNo == reply.memberNo}">
                         <div class="reply-btn-area">
-                            <button>수정</button>
-                            <button>삭제</button>
+                            <button onclick="showUpdateReply(${reply.replyNo}, this)">수정</button>
+                            <button onclick="deleteReply(${reply.replyNo})">삭제</button>
                         </div>
                     </c:if>
     
@@ -39,17 +39,10 @@
 
             </c:forEach>
 
-            <li class="reply-row">
-                <p class="reply-writer">
-                    <img src="${contextPath}/resources/images/user.png">
-                    <span>댓글 작성자 닉네임</span>
-                    <span class="reply-date">(2023.07.20 10:20:30)</span>
-                </p>
 
-                <p class="reply-content">
-                    댓글 내용입니다.<br>
-                    이런식으로 출력 예정!
-                </p>
+            <li class="reply-row">
+                
+                <textarea class="update-textarea">기존 댓글 내용</textarea>
 
                 <div class="reply-btn-area">
                     <button>수정</button>

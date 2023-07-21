@@ -22,6 +22,22 @@ ALTER USER lmr DEFAULT TABLESPACE SYSTEM QUOTA UNLIMITED ON SYSTEM;
 
 
 
+-- 18C 버전은 일반 사용자를 구분할 때 IN 앞에 C##을 붙여야만 하는데
+-- 이를 무시하고 11g와 호환되는 SQL문을 작성하게 하는 SQL 수행
+ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
+
+CREATE USER mixology_connect IDENTIFIED BY mc1234;
+
+-- 생성한 사용자 계정 권한 부여
+GRANT CONNECT, RESOURCE TO mixology_connect;
+
+-- CONNECT : DB 연결 권한 ROLE
+-- RESOURCE : DB 기본 객체 생성 권한 ROLE
+
+-- 객체(테이블 등)가 생성될 수 있는 공간 할당량 지정
+ALTER USER mixology_connect DEFAULT TABLESPACE SYSTEM QUOTA UNLIMITED ON SYSTEM;
+
+
 
 
 
