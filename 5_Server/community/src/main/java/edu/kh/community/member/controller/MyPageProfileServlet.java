@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/member/myPage/profile")
 public class MyPageProfileServlet extends HttpServlet{
 	
-	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 메인페이지 -> 프로필 이미지 클릭
