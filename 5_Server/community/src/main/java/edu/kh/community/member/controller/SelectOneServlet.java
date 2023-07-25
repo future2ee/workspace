@@ -75,19 +75,6 @@ public class SelectOneServlet extends HttpServlet{
 			
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
