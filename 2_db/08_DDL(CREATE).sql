@@ -663,7 +663,7 @@ SELECT * FROM EMPLOYEE_COPY3;
                                                                                                                                                       
 -- ALTER TABLE 테이블명 ADD [CONSTRAINT 제약조건명] UNIQUE(컬럼명)
 -- ALTER TABLE 테이블명 ADD [CONSTRAINT 제약조건명] CHECK(컬럼명 비교연산자 비교값)
--- ALTER TABLE 테이블명 MODIFY 컬럼명 NOT NULL;
+-- ALTER TABLE 테이블명 MODIFY 컬럼명 NOT NULL;-
 
 -- 테이블 제약 조건 확인
 SELECT * 

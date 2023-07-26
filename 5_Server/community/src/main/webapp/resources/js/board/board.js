@@ -1,4 +1,4 @@
-// 상세조회 - 목록으로 버튼
+// 상세조회, 게시글 작성 - 목록으로 버튼
 
 (function(){
     const goToListBtn = document.getElementById("goToListBtn")
@@ -24,14 +24,20 @@
 
             url += "/board/list?" //community/board/list?
 
-            // URL 내장 객체 : 주소 관려 ㄴ정보를 나타내는 객체
+            // URL 내장 객체 : 주소 관련 정보를 나타내는 객체
             // location.href : 현재 페이지 주소 : 쿼리스트링
             // URL.searchParams : 쿼리 스트링만 별도 객체로 반환
 
             const params = new URL(location.href).searchParams;
 
-            const type = "type=" + params.get("type"); //type=1
-            const cp = "cp=" + params.get("cp"); // cp=1
+            const type = "type=" + params.get("type"); // type=1
+            let cp; 
+            if(params.get("cp") != ""){ // 쿼리스트링에 cp가 있을 경우
+
+                cp = "cp=" + params.get("cp");
+            }else{
+                cp = "cp=1";
+            }
             // 조립
             // /community/board/list?type=1&cp=1
             url += type + "&" + cp;
