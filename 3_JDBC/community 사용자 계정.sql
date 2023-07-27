@@ -351,3 +351,46 @@ VALUES(?, ?, ?, DEFAULT, DEFAULT, DEFAULT, DEFAULT, ?, ?);
 -- 게시글 이미지 삽입
 INSERT INTO BOARD_IMG
 VALUES(SEQ_IMG_NO.NEXTVAL, ?, ?, ?, ?);
+
+-- 게시글 부분 수정
+UPDATE BOARD
+SET BOARD_TITLE =?
+, BOARD_CONTENT =?
+, UPDATE_DT = SYSDATE
+WHERE BOARD_NO =?;
+
+-- 게시글 이미지 수정
+-- ?번글의 ?레벨의 변경명, 원본명을 수정
+UPDATE BOARD_IMG
+SET IMG_RENAME =?
+, IMG_ORIGINAL =? 
+WHERE BOARD_NO=?
+AND IMG_LEVEL =?;
+
+--게시글 삭제
+DELETE FROM BOARD_IMG
+WHERE BOARD_NO =?
+AND IMG_LEVEL IN(
+;
+
+-- deleteList = "1,2,3"
+-- pstmt.setString(2, deleteList)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
