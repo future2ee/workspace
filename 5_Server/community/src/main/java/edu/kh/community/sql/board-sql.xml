@@ -70,7 +70,30 @@
 		VALUES(SEQ_IMG_NO.NEXTVAL, ?, ?, ?, ?)
 	</entry>
 	
+	<!-- 게시글 부분 수정 -->
+	<entry key="updateBoard">
+		UPDATE BOARD
+		SET BOARD_TITLE =?
+		, BOARD_CONTENT =?
+		, UPDATE_DT = SYSDATE
+		WHERE BOARD_NO =?
+	</entry>
 	
+	<!-- 게시글 이미지 수정 -->
+	<entry key="updateBoardImage">
+		UPDATE BOARD_IMG
+		SET IMG_RENAME =?
+		, IMG_ORIGINAL =? 
+		WHERE BOARD_NO=?
+		AND IMG_LEVEL =?
+	</entry>
+	
+	<!-- 게시글 이미지 삭제 -->
+	<entry key="deleteBoardImage">
+		DELETE FROM BOARD_IMG
+		WHERE BOARD_NO =?
+		AND IMG_LEVEL IN(
+	</entry>
 	
 	
 	
