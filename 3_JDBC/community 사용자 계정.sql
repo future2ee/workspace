@@ -376,15 +376,44 @@ AND IMG_LEVEL IN(
 -- deleteList = "1,2,3"
 -- pstmt.setString(2, deleteList)
 
+-- 게시글 삭제
+UPDATE BOARD
+SET BOEARD_ST ='Y'
+WHERE BOARD_NO=?;
 
+-- 2번 게시글 전체 게시글 수 조회
+SELECT COUNT(*) FROM BOARD
+WHERE BOARD_ST = 'N'
+AND BOARD_CD=2;
 
+-- 2번 게시판에서 제목에 "50" 포함된 게시글 수 조회
+SELECT COUNT(*) FROM BOARD
+JOIN MEMBER USING(MEMBER_NO)
+WHERE BOARD_ST = 'N'
+AND BOARD_CD=2
+-- AND BOARD_TITLE LIKE '%50%'; -- 제목
+-- AND BOARD_CONTENT LIKE '%50%'; -- 내용
+-- AND (BOARD_TITLE LIKE '%50%' OR BOARD_CONTENT LIKE '%50%'); -- 제목, 내용
+AND MEMBER_NICK LIKE '%유저일%';
 
-
-
-
-
-
-
+-- 
+SELECT * FROM(
+    SELECT ROWNUM RNUM, A. * FROM(
+        SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICK, 
+            TO_CHAR(CREATE_DT, 'YYYY-MM-DD') AS CREATE_DT,
+            READ_COUNT
+        FROM BOARD
+        JOIN MEMBER USING(MEMBER_NO)
+        WHERE BOARD_CD = ?
+        AND BOARD_ST = 'N'
+        
+        -- condition
+        AND BOARD_TITLE LIKE '%50%' -- 조건ㅈ
+        
+        ORDER BY BOARD_NO DESC
+    )A
+)
+WHERE RNUM BETWEEN ? AND ?
 
 
 
