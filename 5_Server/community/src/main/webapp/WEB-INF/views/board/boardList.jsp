@@ -74,6 +74,10 @@
                                     <tr>
                                         <td>${board.boardNo}</td>
                                         <td>
+                                            <c:if test="${! empty board.thumbnail}">
+                                                <img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
+                                            </c:if>
+                                       
                                             <a href="detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL}">${board.boardTitle}</a>
                                         </td>
                                         <td>${board.memberNickname}</td>
@@ -160,6 +164,11 @@
 
         </section>
     </main>
+
+    <div class="modal">
+        <span id="modal-close">&times;</span>
+        <img id="modal-image" src="${contextPath}/resources/images/user.png">
+    </div>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <script src="${contextPath}/resources/js/board/board.js"></script>
