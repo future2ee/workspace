@@ -37,6 +37,7 @@ public class JDBCExample1 {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			// ClassNotFoundException 발생 가능성이 있음
 			
+			
 			// 2. 연결 정보를 담은 Connection을 생성
 			// 	  (이때, DriverManager 객체가 필요함)
 			//    DriverManager : JDBC 드라이버를 통해 Connection 객체를 만드는 역할
