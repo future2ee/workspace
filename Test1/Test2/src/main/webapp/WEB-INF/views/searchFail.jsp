@@ -7,12 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="<%=req.getContextPath()%>/selectUser">
-	<input type="text" name="userNo" placeholder="회원 번호 입력">
-	<button>조회</button>
-</form>
+<h1>조회 결과가 없습니다.</h1>
 
-
-
+<a href="ContextPath/views/index.jsp">메인페이지로 돌아가기</a>
+	
 </body>
 </html>

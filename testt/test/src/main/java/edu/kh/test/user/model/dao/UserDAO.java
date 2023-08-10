@@ -1,14 +1,4 @@
-package edu.kh.test.user.model.dao;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
-import edu.kh.test.user.model.vo.UserDTO;
-
-public class UserDAO {
-	Connection conn = null;
+Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
@@ -66,5 +56,3 @@ public class UserDAO {
 
 		return dto;
 	}
-
-}
