@@ -40,7 +40,7 @@ import edu.kh.project.member.model.service.MemberService;
 @SessionAttributes("loginMember") // Model의 이름(key)를 적으면 session으로 추가
 public class MemberController {
 	
-	// 등록된 Bean 중에서 필드와 차입이 일치하는 Bean을 주입
+	// 등록된 Bean 중에서 필드와 입이 일치하는 Bean을 주입
 	// -> MemberService를 구현한 MemberServiceImpl의 Bean을 주입
 	@Autowired
 	private MemberService service;
@@ -75,9 +75,9 @@ public class MemberController {
 	// @PostMapping 
 	// -> @RequestMapping의 자식으로
 	//    POST 방식 요청을 연결하는 어노테이션
-	//@PostMapping("/login")
+	// @PostMapping("/login")
 	public String login(/* @RequestParam("inputEmail") */ String inputEmail,
-						/* @RequestParam("inputPw") */String inputPw) {
+						/* @RequestParam("inputPw") */ String inputPw) {
 
 		// 파라미터 전달 방법 2 : @RequestParam 어노테이션 이용 ( + 생략 방법 )
 		
@@ -87,7 +87,7 @@ public class MemberController {
 		// - 매개변수 앞에 해당 어노테이션을 작성하면, 매개변수에 값이 주입됨.
 		
 		// ** 파라미터의 name 속성 값과
-		//    매개변수며잉 같으면  @RequestParam 셍략 가능 !! **
+		//    매개변수명이 같으면  @RequestParam 생략 가능 !! **
 		
 		// @RequestParam(value="name", required="fasle", defaultValue="1")
 		// [속성]
