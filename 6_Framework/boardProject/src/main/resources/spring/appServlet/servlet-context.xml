@@ -13,13 +13,13 @@
 		DispatcherServlet 생성 시 필요함 내용을 정의하는 파일
 		
 		HandlerMapping :
-		어떤 요청을 어던 클래스/메소드로 연결하는지 제어하는 객체
+		어떤 요청을 어떤 클래스/메소드로 연결하는지 제어하는 객체
 		<annotation-driven />
 		@RequestMapping, @GetMapping, @PostMapping을 활성화 해서
 		HandlerMapping을 대체
 	
 		
-		ViewResolver : Controller에서 반환된 문자열("connon/main")
+		ViewResolver : Controller에서 반환된 문자열("common/main")
   					   앞, 뒤에 경로(/WEB-INF/views), 확장자(.jsp)를 붙여
   					   jsp 파일의 경로를 지정한 후 forward(요청 위임)을 하는 객체
 		

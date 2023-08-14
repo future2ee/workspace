@@ -8,7 +8,7 @@
 
 	<!--  
 		resultMap 
-		-SELECT 조회 결과(ResultSe) 컬럼명과
+		-SELECT 조회 결과(ResultSet) 컬럼명과
 		  컬럼 값을 옮겨 닮을 DTO의 필드명이 같지 않을 때
 		  이를 매핑 시켜 SELECT시 자동으로 담기게 하는 역할
 		  
@@ -81,6 +81,25 @@
 		WHERE MEMBER_DEL_FL = 'N'
 		AND MEMBER_EMAIL = #{memberEmail}
 	</select>
+	
+	<!-- 
+		insert, update, delete와 같은 DML 구문은 
+		수행 결과가 항상 성공한 행의 개수(int 자료형)으로 고정
+		-> resultType을 작성하지 않는다! (항상 int)
+	 -->
+	
+	
+	<!-- 회원 가입 -->		<!-- mybatis-config.xml에 지정된 별칭 -->
+	<insert id="signUp" parameterType="Member" >
+		INSERT INTO "MEMBER"
+		VALUES(SEQ_MEMBER_NO.NEXTVAL
+			, #{memberEmail}
+			, #{memberPw}
+			, #{memberNickname}
+			, #{memberTel}
+			, #{memberAddress}
+			,NULL, DEFAULT, DEFAULT, DEFAULT)
+	</insert>
  	
  	
  	

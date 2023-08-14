@@ -9,7 +9,7 @@
 	<packaging>war</packaging>  <!-- 배포 형식 -->
 	<version>1.0.0--BUILD-SNAPSHOT</version>
 
-	<!-- properties : 메이븐이 적용된 프로젝트에서 공통적으로 사용할 값을 작성하는 태그(전연 변수) -->
+	<!-- properties : 메이븐이 적용된 프로젝트에서 공통적으로 사용할 값을 작성하는 태그(전역 변수) -->
 	<properties>
 		<java-version>11</java-version>
 		<org.springframework-version>5.3.14</org.springframework-version>
