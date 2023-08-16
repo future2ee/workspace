@@ -32,7 +32,7 @@ public class MemberServiceImpl implements MemberService {
 		
 		// bcrypt 암호화는 salt가 추가되기 때문에
 		// 계속 비밀번호가 바뀌게 되어 DB에서 비교 불가능!!
-		// -> 별도로 베공해주는 matches(평문, 암호문)을 이용해 비교
+		// -> 별도로 제공해주는 matches(평문, 암호문)을 이용해 비교
 		
 		
 		// DAO 메소드 호출

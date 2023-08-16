@@ -181,6 +181,9 @@
         }
     </script>
 
+    <%-- signUp.js 추가 --%>
+    <script src="/resources/js/member/signUp.js"></script>
+
 
 
 
