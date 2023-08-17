@@ -16,10 +16,10 @@
 <body>
     <main>
         <%-- header.jsp include --%>
-        <%-- 다른 JSP 코드를 현대 위치에 포함
-             wepapp부터의 jsp 경로를 작성 --%>
-        <jsp:include page="/WEB-INF/views/common/header.jsp" /> 
+        <%-- 다른 JSP 코드를 현재 위치에 포함
+            webapp부터의 jsp 경로를 작성 --%>
        
+       <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 
         <section class="signUp-content">
@@ -35,7 +35,7 @@
 
 
                 <div class="signUp-input-area">
-                    <input type="text" name="memberEmail" id="memberEmail"
+                    <input type="text" name="memberEmail" id="memberEmail"  
                     placeholder="아이디(이메일)" maxlength="30" autocomplete="off">
                    
                     <button id="sendAuthKeyBtn" type="button">인증번호 받기</button>
@@ -130,7 +130,7 @@
 
 
                 <div class="signUp-input-area">
-                    <input type="text" name="memberAddress" placeholder="도로명/지번 주소" id="sample6_address">
+                    <input type="text" name="memberAddress" placeholder="도로명/지번 주소" id="sample6_extraAddress">
                 </div>
 
 
@@ -150,7 +150,7 @@
 
 
     <%-- footer.jsp include --%>
-    <jsp:include page="/WEB-INF/views/common/footer.jsp" /> 
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
@@ -162,7 +162,6 @@
                     // 각 주소의 노출 규칙에 따라 주소를 조합한다.
                     // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
                     var addr = ''; // 주소 변수
-                    
 
                     //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
                     if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
@@ -181,11 +180,7 @@
         }
     </script>
 
-    <%-- signUp.js 추가 --%>
     <script src="/resources/js/member/signUp.js"></script>
-
-
-
 
 </body>
 </html>

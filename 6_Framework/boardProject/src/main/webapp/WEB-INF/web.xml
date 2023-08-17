@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="4.0" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://JAVA.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_4_0.xsd">
+	xsi:schemaLocation="http://JAVA.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_4.0.xsd">
 
-	<!-- web.xml (배포 서술자/설명서)
-		 서버가 켜질 때(배포가 시작될 때) 가장 먼저 읽어들이는 설정 파일
-	 -->
+
+	<!-- web.xml (배포 서술자/설명서 
+		  서버가 켜질 때(배포가 시작될 때) 가장 먼저 읽어들이는 설정 파일
+	-->
 	
-	<!-- root-context.xml
-		 서버가 켜질 때 web.xml이 가장 먼저 읽어들이는 설정 파일
-		 프로젝트가 전반적으로 사용될 설정, 객체(Bean)를 생성하는 용도의 파일
-	 -->
-	
+	<!-- root-context.xml 
+		  서버가 켜질 떄 web.xml이 가장 먼저 읽어들이는 설정 파일
+		  프로젝트 전반적으로 사용될 설정, 객체(Bean)를 생성하는 용도의 파일-->
+
+
 	<!-- The definition of the Root Spring Container shared by all Servlets 
 		and Filters -->
 	<context-param>
@@ -31,9 +32,11 @@
 	<!-- Processes application requests -->
 	
 	<!-- 
-		DispatcherServlet(Spring에서 제공) 객체 생성 시
-		servlet-context.xml 파일을 이용해서 만든다
+		DispatcherServlet(Spring에서 제공) 객체 생성 시 
+		servlet-context.xml 파일을 이용해서 만든다.
 	 -->
+	
+	
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet
@@ -50,7 +53,7 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
+	
 	<!-- 한글 깨짐 방지를 위한 Filter 추가 -->
 	<!-- 별도의 filter 클래스를 만들지 않고 스프링에서 제공하는 filter를 사용 -->
 	<filter>

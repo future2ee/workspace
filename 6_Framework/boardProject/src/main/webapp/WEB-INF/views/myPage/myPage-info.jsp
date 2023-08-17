@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -25,23 +26,23 @@
 
                 <h1 class="myPage-title">내 정보</h1>
                 <span class="myPage-subject">원하는 회원 정보를 수정할 수 있습니다.</span>
-
+                
                 <%-- 현재 페이지 : http://localhost/myPage/info
-                     제일 뒤에 info 지우고
-                     action에 작성된 경로 추가
-                --%>
-
-                <%-- 상대 경로 --%>
-                <form action="info" method="POST" name="myPageFrm" >
+                		제일 뒤에 info 지우고
+                		action에 작성된 경로 추가
+                 --%>
+                 
+                 <%-- 상대 경로 --%>
+                <form action="info" method="POST" name="myPageFrm" id="updateInfo">
 
                     <div class="myPage-row">
                         <label>닉네임</label>
-                        <input type="text" name="memberNickname"  maxlength="10" value="${loginMember.memberNickname}">
+                        <input type="text" name="memberNickname"  maxlength="10" value="${loginMember.memberNickname}" id="memberNickname">
                     </div>
 
                     <div class="myPage-row">
                         <label>전화번호</label>
-                        <input type="text" name="memberTel"  maxlength="11" value="${loginMember.memberTel}">
+                        <input type="text" name="memberTel"  maxlength="11" value="${loginMember.memberTel}" id="memberTel">
                     </div>
 
                     <div class="myPage-row info-title">
@@ -49,26 +50,27 @@
                     </div>
 
                     <%-- ${fn:split(loginMember.memberAddress, '^^^')[0]}
-                         ${fn:split(loginMember.memberAddress, '^^^')[1]}
-                         ${fn:split(loginMember.memberAddress, '^^^')[2]} --%>
+                    ${fn:split(loginMember.memberAddress, '^^^')[1]}
+                    ${fn:split(loginMember.memberAddress, '^^^')[2]} --%>
 
-                    <%-- ${fn:split(문자열, 구분자)}
-                            문자열을 구분자로 나누어 배열 형태로 반환
-                    --%>
+                    <%-- 
+                        ${fn:split(문자열, 구분자)}
+                        문자열을 구분자로 나누어 배열 형태로 반환
+                     --%>
 
-                    <c:set var="addr" value="${fn:split(loginMember.memberAddress,'^^^')}"/>
+                     <c:set var="addr" value="${fn:split(loginMember.memberAddress, '^^^')}"/>
 
                     <div class="myPage-row info-address">
-                        <input type="text" name="memberAddress" placeholder="우편번호" value="${addr[0]}" id="sample6_postcode">
+                        <input type="text" name="memberAddress" placeholder="우편번호" id="sample6_postcode" value="${addr[0]}">
                         <button type="button" onclick="sample6_execDaumPostcode()">검색</button>
                     </div>
 
                     <div class="myPage-row info-address">
-                        <input type="text" name="memberAddress"  placeholder="도로명/지번 주소" value="${addr[1]}" id="sample6_address">                
+                        <input type="text" name="memberAddress"  placeholder="도로명/지번 주소" id="sample6_address"  value="${addr[1]}">                
                     </div>
 
                     <div class="myPage-row info-address">
-                        <input type="text" name="memberAddress"  placeholder="상세 주소" value="${addr[2]}" id="sample6_detailAddress">                
+                        <input type="text" name="memberAddress"  placeholder="상세 주소" id="sample6_detailAddress" value="${addr[2]}">                
                     </div>
 
                     <button class="myPage-submit">수정하기</button>
@@ -82,7 +84,8 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <!-- 다음 주소 api 추가 -->
-     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
         function sample6_execDaumPostcode() {
             new daum.Postcode({
@@ -92,7 +95,6 @@
                     // 각 주소의 노출 규칙에 따라 주소를 조합한다.
                     // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
                     var addr = ''; // 주소 변수
-                    
 
                     //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
                     if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
@@ -111,6 +113,7 @@
         }
     </script>
 
+    <script src="/resources/js/myPage/myPage.js"></script>
     
 </body>
 </html>

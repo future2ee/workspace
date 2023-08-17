@@ -2,7 +2,6 @@
 
 <!-- 왼쪽 사이드 메뉴 -->
 <section class="left-side">
-    사이드메뉴
 
     <ul class="list-group">
         <li> <a href="/myPage/profile">프로필</a> </li>

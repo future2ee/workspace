@@ -28,9 +28,6 @@
             </a>
         </section>
 
-
-
-
         <form action="/member/login" method="post" id="loginFrm">
             <section class="input-box">
                 <input type="text" name="memberEmail" placeholder="Email" value="${cookie.saveId.value}"  />
@@ -59,12 +56,14 @@
 
 
             <p class="text-area">
-                <a href="#">회원가입</a>
+                <a href="signup">회원가입</a>
                 |
                 <a href="#">ID/PW 찾기</a>
             </p>
         </form>
     </main>
+
+
     <%-- main.js 추가 --%>
     <script src="/resources/js/main.js"></script>
 
