@@ -57,4 +57,22 @@ public class BoardDAO {
 		
 		
 	}
+
+	/** 게시글 상세 조회
+	 * @param map
+	 * @return board
+	 */
+	public Board selectBoard(Map<String, Object> map) {
+		
+		return sqlSession.selectOne("boardMapper.selectBoard",map);
+	}
+
+	/** 게시글 좋아요
+	 * @param map
+	 * @return result
+	 */
+	public int boardLikeCheck(Map<String, Object> map) {
+		
+		return sqlSession.selectOne("boardMapper.boardLikeCheck",map);
+	}
 }
