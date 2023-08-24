@@ -54,9 +54,4 @@ boardLike.addEventListener("click", e => {
         console.log(err);
     }) // 예외 발생 시 처리하는 부분
 
-
-
-
-
-
 })
