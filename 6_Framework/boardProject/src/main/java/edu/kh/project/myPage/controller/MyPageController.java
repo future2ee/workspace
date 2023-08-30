@@ -69,7 +69,7 @@ public class MyPageController {
 		// String[] memberAddress : name="memberAddress"인 input 3개의 값(주소)
 		
 		// @SessionAttribute("loginMember") Member loginMember
-		// : Session에서 얻어온 : "loginMEmber"에 해당하는 객체를
+		// : Session에서 얻어온 : "loginMember"에 해당하는 객체를
 		// : 매개변수 Member loginMember에 저장
 		// -------------------------------------------------------------
 		
@@ -191,22 +191,22 @@ public class MyPageController {
 		return path;
 	}
 	
-	
 	/* MultipartFile : input type="file"로 제출된 파일을 저장한 객체
-	 * 
+	 *
 	 * [제공하는 메소드]
-	 * - transferTo() : 파일을 지정된 경로에 저장(메모리 -> HDD/SSD)
+	 * - transferTo() 		   : 파일을 지정된 경로에 저장(메모리 -> HDD/SSD)
 	 * - getOriginalFileName() : 파일 원본명
-	 * - getSize() : 파일 크기
+	 * - getSize()			   : 파일 크기
 	 * */
 	
 	// 프로필 이미지 수정
-	@PostMapping("/profile")
-	public String updateProfile(@RequestParam("profileImage") MultipartFile profileImage  // 업로드한 파일
-								, @SessionAttribute("loginMember") Member loginMember // 로그인한 회원
-								, RedirectAttributes ra // 리다이렉트 시 메세지 전달
-								, HttpSession session // 세션 객체
-								) throws IllegalStateException, IOException {
+	@PostMapping("/profile") // responseBody, requestBody -> ajax
+	public String updateProfile(
+			@RequestParam("profileImage") MultipartFile profileImage // 업로드 파일
+			, @SessionAttribute("loginMember") Member loginMember // 로그인한 회원
+			, RedirectAttributes ra // 리다이렉트 시 메세지 전달
+			, HttpSession session // 세션 객체
+			)throws IllegalStateException, IOException {
 		
 		// 웹 접근 경로
 		String webPath = "/resources/images/member/";
@@ -215,36 +215,17 @@ public class MyPageController {
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
 		// 프로필 이미지 수정 서비스 호출
-		int result = service.updateProfile(profileImage, loginMember, webPath, filePath);
+		int result = service.updateProfile(profileImage, webPath, filePath, loginMember);
 		
 		String message = null;
-		if(result>0) message = "프로필 이미지가 변경되었습니다.";
-		else		 message ="프로필 변경 실패";
 		
-		ra.addFlashAttribute("message",message);
+		if(result > 0) message = "프로필 이미지가 변경 되었습니다";
+		else		   message = "프로필 변경 실패";
 		
-		
+		ra.addFlashAttribute("message", message);
 		
 		return "redirect:profile";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

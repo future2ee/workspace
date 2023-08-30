@@ -1,23 +1,18 @@
 package edu.kh.project.member.model.service;
 
-
 import java.util.HashMap;
 import java.util.Map;
-
 
 import javax.mail.Message;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import edu.kh.project.member.model.dao.EmailDAO;
-
 
 @Service
 public class EmailServiceImpl implements EmailService {
@@ -29,7 +24,7 @@ public class EmailServiceImpl implements EmailService {
     @Autowired
     private JavaMailSender mailSender;
     
-    private String fromEmail = "alfo5182@gmail.com";
+    private String fromEmail = "hwabyreTest@gmail.com";
     private String fromUsername = "수업용프로젝트";
 
 

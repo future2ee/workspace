@@ -57,39 +57,52 @@
 
 
     <section></section>
-
-
+    
+    
     <%-- 우측 상단 드롭다운 메뉴 --%>
+
+
     <div class="header-top-menu">
 
+
         <c:choose>
+
            <c:when test="${empty loginMember}">
-
-                <!-- 로그인 X -->
-
-                <a href="/">메인페이지</a> | <a href="/member/login">로그인</a>
-            
+                <%-- 로그인 x --%>
+                <a href="/">메인 페이지</a> | <a href="/member/login">로그인</a>
            </c:when>
         
            <c:otherwise>
-
-                <!-- 로그인 O -->
-                <label for="headerMenuToggle">
-                    ${loginMember.memberNickname} <i class="fa-solid fa-caret-down"></i>
+                <%-- 로그인 o --%>
+                        <label for="headerMenuToggle">
+                   ${loginMember.memberNickname}<i class="fa-solid fa-caret-down"></i>
                 </label>
-
+        
+        
                 <input type="checkbox" id="headerMenuToggle">
-
+            
                 <div class="header-menu">
                     <a href="/myPage/info">내정보</a>
                     <a href="/member/logout">로그아웃</a>
+            
                 </div>
            </c:otherwise>
+
         </c:choose>
 
+        <!-- 로그인 x  -->
 
+
+        <!-- <a href="/">메인 페이지</a> | <a href="/member/login">로그인</a> -->
+    
+    
+        <!-- 로그인 o -->
+
+        
+   
     </div>
 
+    
 </header>
 
 <nav>
@@ -101,18 +114,17 @@
         <li><a href="#">1:1문의</a></li> --%>
 
         <%-- interceptor를 이용해서 조회된 boardTypeList를
-             application scope에서 얻어와 화면에 출력
+            application scope에서 얻어와 화면에 출력
          --%>
+        
+        <c:forEach var="boardType" items="${boardTypeList}">
 
-        <c:forEach  var="boardType" items="${boardTypeList}">
-            <li><a href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a></li>
+                <li>
+                    <a href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
+                </li>
+
 
         </c:forEach>
-
-
-
-
-
 
 
     </ul>

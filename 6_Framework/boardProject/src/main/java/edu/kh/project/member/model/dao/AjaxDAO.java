@@ -8,10 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import edu.kh.project.member.model.dto.Member;
 
-/**
- * @author user1
- *
- */
 @Repository // DB를 연결한다 + bean 등록 
 public class AjaxDAO {
 	
@@ -40,7 +36,7 @@ public class AjaxDAO {
 	
 	/** 이메일 중복 검사
 	 * @param email
-	 * @return
+	 * @return count
 	 */
 	public int checkEmail(String email) {
 		return sqlSession.selectOne("ajaxMapper.checkEmail", email);
@@ -48,10 +44,9 @@ public class AjaxDAO {
 
 	/** 닉네임 중복 검사
 	 * @param nickname
-	 * @return nickname
+	 * @return count
 	 */
 	public int checkNickname(String nickname) {
-		
 		return sqlSession.selectOne("ajaxMapper.checkNickname", nickname);
 	}
 
@@ -60,17 +55,11 @@ public class AjaxDAO {
 	 * @return member
 	 */
 	public Member selectMember(String email) {
-
 		return sqlSession.selectOne("ajaxMapper.selectMember", email);
 	}
 
-	/** 이메일이 일부라고 일치하는 모든 회원 조회
-	 * @param input
-	 * @return memberList
-	 */
 	public List<Member> selectMemberList(String input) {
-		
-		return sqlSession.selectList("ajaxMapper.selectMemberList",input);
+		return sqlSession.selectList("ajaxMapper.selectMemberList", input);
 	}
 	
 }

@@ -30,20 +30,17 @@ public interface AjaxService {
 
 	/** 닉네임 중복 확인
 	 * @param nickname
-	 * @return nickname
+	 * @return count
 	 */
 	int checkNickname(String nickname);
 
+	
 	/** 이메일로 회원 정보 조회
 	 * @param email
 	 * @return member
 	 */
 	Member selectMember(String email);
 
-	/** 이메일이 일부라도 일치하는 모든 회원 조회
-	 * @param input
-	 * @return memberList
-	 */
 	List<Member> selectMemberList(String input);
 	
 

@@ -41,15 +41,14 @@ public class AjaxServiceImpl implements AjaxService{
 		
 		return dao.checkNickname(nickname);
 	}
-
+	
 	// 이메일로 회원 정보 조회
 	@Override
 	public Member selectMember(String email) {
-
+		
 		return dao.selectMember(email);
 	}
 
-	// 이메일이 일부라고 일치하는 모든 회원 조회
 	@Override
 	public List<Member> selectMemberList(String input) {
 		

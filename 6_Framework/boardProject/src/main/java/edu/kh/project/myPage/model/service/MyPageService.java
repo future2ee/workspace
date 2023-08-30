@@ -30,13 +30,13 @@ public interface MyPageService {
 	 */
 	int secession(int memberNo, String memberPw);
 
-	/** 프로필 이미지 수정
+	/** 프로필 이미지 수정 서비스
 	 * @param profileImage
-	 * @param loginMember
 	 * @param webPath
 	 * @param filePath
+	 * @param loginMember
 	 * @return result
 	 */
-	int updateProfile(MultipartFile profileImage, Member loginMember, String webPath, String filePath) throws IllegalStateException, IOException;
+	int updateProfile(MultipartFile profileImage, String webPath, String filePath, Member loginMember) throws IllegalStateException, IOException;
 
 }

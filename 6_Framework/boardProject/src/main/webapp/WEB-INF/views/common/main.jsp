@@ -42,20 +42,21 @@
                 <hr>
 
                 <h3>이메일을 입력 받아 일치하는 회원의 정보를 조회</h3>
-                email : <input type="text" id="inputEmail">
+                email : <input type="text" id="inputEmail"/>
                 <button id="btn2">조회</button>
-                <ul id="result2"></ul>
+                <ul id="result2">
 
+                </ul>
                 <hr>
 
                 <h3>이메일이 일부라도 일치하는 모든 회원 조회</h3>
-                검색어 : <input type="text" id="input">
+                검색어 : <input type="text" id="input"/>
                 <button id="btn3">조회</button>
                 
-                <table border="1" style="border-collapse : collapse;">
+                <table border="1" style="border-collapse: collapse;">
                     <thead>
                         <tr>
-                            <th>회원 번호</th>
+                            <th>회원번호</th>
                             <th>이메일</th>
                             <th>닉네임</th>
                         </tr>
@@ -68,8 +69,6 @@
                         </tr>
                     </tbody>
                 </table>
-
-
 
             </section>
 
@@ -131,12 +130,9 @@
                         <article class="login-area">
 
                             <a href="/myPage/profile">
-                                <%-- 프로필 이미지가 없으면 기본 이미지 --%>
                                 <c:if test="${empty loginMember.profileImage}" >
                                     <img src="/resources/images/user.png" id="memberProfile">
                                 </c:if>
-
-                                <%-- 프로필 이미지가 있으면 이미지 --%>
                                 <c:if test="${!empty loginMember.profileImage}" >
                                     <img src="${loginMember.profileImage}" id="memberProfile">
                                 </c:if>

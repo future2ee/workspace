@@ -8,7 +8,7 @@ import edu.kh.project.board.model.dto.Board;
 public interface BoardService {
 
 	/** 게시판 종류 목록 조회
-	 * @return 
+	 * @return boardList
 	 */
 	List<Map<String, Object>> selectBoardTypeList();
 
@@ -25,9 +25,9 @@ public interface BoardService {
 	 */
 	Board selectBoard(Map<String, Object> map);
 
-	/** 게시글 좋아요 
+	/** 좋아요 체크 여부 확인 서비스
 	 * @param map
-	 * @return result
+	 * @return
 	 */
 	int boardLikeCheck(Map<String, Object> map);
 
@@ -39,7 +39,7 @@ public interface BoardService {
 
 	/** 조회수 증가 서비스
 	 * @param boardNo
-	 * @return result
+	 * @return count
 	 */
 	int updateReadCount(int boardNo);
 

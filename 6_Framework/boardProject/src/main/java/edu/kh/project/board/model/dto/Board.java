@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 
 public class Board {
-
+	
 	private int boardNo;
 	private String boardTitle;
 	private String boardContent;
@@ -21,11 +21,11 @@ public class Board {
 	private int boardCode;
 	
 	// 서브쿼리
-	private int commentCount;  //댓글 수
-	private int likeCount;     // 좋아요 수
+	private int commentCount; // 댓글 수
+	private int likeCount;	  // 좋아요 수
 	
 	// 회원 join
-	private String memberNickname; 
+	private String memberNickname;
 	private int memberNo;
 	private String profileImage;
 	private String thumbnail;
@@ -35,5 +35,4 @@ public class Board {
 
 	// 댓글 목록
 	private List<Comment> commentList;
-
 }

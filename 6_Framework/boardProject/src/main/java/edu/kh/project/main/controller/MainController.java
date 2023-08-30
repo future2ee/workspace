@@ -37,8 +37,6 @@ public class MainController {
 		// -> prefix + 리턴 값 + suffix로 경로 완성!
 		// ** View Resolver **
 		
-		
-		
 		return "common/main";
 	}
 	
