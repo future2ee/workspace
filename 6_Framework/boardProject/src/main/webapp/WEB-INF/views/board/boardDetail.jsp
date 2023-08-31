@@ -188,6 +188,7 @@
         //            -> EL 값이 null이여도 ""(빈문자열)로 출력
         const loginMemberNo = "${loginMember.memberNo}";
 
+        const boardCode = "${boardCode}";
 
     </script>
     <script src="/resources/js/board/boardDetail.js"></script>  

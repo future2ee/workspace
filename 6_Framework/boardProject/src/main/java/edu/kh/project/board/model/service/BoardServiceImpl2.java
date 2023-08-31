@@ -209,9 +209,9 @@ public class BoardServiceImpl2 implements BoardService2{
 			// 5. uploadList에 있는 이미지들만 서버에 저장(transferTo())
 			if(!uploadList.isEmpty()) {
 				for(int i=0;i<uploadList.size();i++) {
-					
+
 					int index = uploadList.get(i).getImageOrder();
-					
+
 					// 파일로 변환
 					String rename = uploadList.get(i).getImageReName();
 					images.get(index).transferTo(new File(filePath + rename));
@@ -222,5 +222,14 @@ public class BoardServiceImpl2 implements BoardService2{
 
 
 		return rowCount;
+	}
+
+
+
+	//게시글 삭제
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int boardDelete(Map<String, Object> map) {
+		return dao.boardDelete(map);
 	}
 }
