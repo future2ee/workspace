@@ -82,7 +82,7 @@ public class BoardController {
    // 게시글 목록 조회
    @GetMapping("/{boardCode:[0-9]+}") // boardCode는 1자리 이상 숫자
    public String selectBoardList(@PathVariable("boardCode") int  boardCode
-         , @RequestParam(value="cp",required=false,    defaultValue = "1") int cp
+         , @RequestParam(value="cp",required=false, defaultValue = "1") int cp
          , Model model
          , @RequestParam Map<String, Object> paramMap // 파라미터 전부 담겨있음
          ){
