@@ -10,16 +10,16 @@ import edu.kh.project.board.model.dto.Comment;
 
 @Repository // DB 관련 + bean 등록(IOC)
 public class CommentDAO {
-	
+
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	/** 댓글 목록 조회
+ 	/** 댓글 목록 조회
 	 * @param boardNo
 	 * @return cList
 	 */
 	public List<Comment> select(int boardNo) {
-									//board-mapper.xml에 작성된거 사용
+									// board-mapper.xml에 작성된 select 이용
 		return sqlSession.selectList("boardMapper.selectCommentList", boardNo);
 	}
 
@@ -37,17 +37,12 @@ public class CommentDAO {
 	 * @return result
 	 */
 	public int delete(int commentNo) {
-		
-		return sqlSession.update("commentMapper.delete",commentNo);
+		return sqlSession.update("commentMapper.delete", commentNo);
 	}
 
-	/** 댓글 수정
-	 * @return
-	 */
 	public int update(Comment comment) {
-		
-		return sqlSession.update("commentMapper.update",comment);
+		return sqlSession.update("commentMapper.update", comment);
 	}
 	
-
+	
 }

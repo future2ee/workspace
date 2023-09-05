@@ -28,14 +28,14 @@
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-        <%-- 검색을 진행한 경우 파라미터(key, query)를 
+        <%-- 검색을 진행한 경우 파라미터(key, query)를
              쿼리스트링 형태로 저장한 변수를 선언 --%>
-        
+
         <c:if test="${!empty param.key}" >
+
             <c:set var="sp" value="&key=${param.key}&query=${param.query}"/>
+
         </c:if>
-
-
 
         
         <section class="board-list">
@@ -43,9 +43,8 @@
             <h1 class="board-name">${boardName}</h1>
 
             <c:if test="${!empty param.key}" >
-            <h3 style="margin:30px">"${param.query}"검색 결과</h3>
+                <h3 style="margin: 30px">"${param.query}" 검색결과</h3>
             </c:if>
-
 
             <div class="list-wrapper">
                 <table class="list-table">
@@ -115,9 +114,7 @@
 
             </div>
 
-
             <div class="pagination-area">
-
 
                 <ul class="pagination">
                 

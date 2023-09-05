@@ -15,21 +15,21 @@ public class CommentServiceImpl implements CommentService{
 
 	@Autowired
 	private CommentDAO dao;
-	
+
 	// 댓글 목록 조회
 	@Override
 	public List<Comment> select(int boardNo) {
-
-		return dao.select(boardNo); 
+		return dao.select(boardNo);
 	}
+
 	
 	// 댓글 삽입
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int insert(Comment comment) {
+		
 		// XSS 방지 처리
 		comment.setCommentContent(Util.XSSHandling(comment.getCommentContent()));
-		
 		
 		return dao.insert(comment);
 	}
@@ -38,13 +38,15 @@ public class CommentServiceImpl implements CommentService{
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int delete(int commentNo) {
-		
 		return dao.delete(commentNo);
 	}
 
 	// 댓글 수정
+	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public int update(Comment comment) {	
+	public int update(Comment comment) {
+		
+		System.out.println(comment);
 		// XSS 방지 처리
 		comment.setCommentContent(Util.XSSHandling(comment.getCommentContent()));
 		

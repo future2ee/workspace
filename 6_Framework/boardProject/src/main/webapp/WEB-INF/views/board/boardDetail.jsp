@@ -68,11 +68,11 @@
                 </div>
 
                 <div class="board-info">
-                    <p> <span>등록일</span>${board.boardCreateDate}</p>     
+                    <p> <span>작성일</span> ${board.boardCreateDate} </p>     
 
                     <!-- 수정한 게시글인 경우 -->
                     <c:if test="${!empty board.boardUpdateDate}" >
-                        <p> <span>수정일</span>${board.boardUpdateDate}</p>   
+                        <p> <span>수정일</span> ${board.boardUpdateDate} </p>   
                     </c:if>
 
                     <p> <span>조회수</span> ${board.readCount} </p>                    
@@ -188,12 +188,15 @@
         //            -> EL 값이 null이여도 ""(빈문자열)로 출력
         const loginMemberNo = "${loginMember.memberNo}";
 
+
         const boardCode = "${boardCode}";
 
+
     </script>
+
     <script src="/resources/js/board/boardDetail.js"></script>  
     <script src="/resources/js/board/comment.js"></script>  
-
+    
 
 </body>
 </html>

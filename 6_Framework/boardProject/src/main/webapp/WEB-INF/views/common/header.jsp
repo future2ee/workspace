@@ -43,9 +43,8 @@
                     placeholder="검색어를 입력해주세요."
                     autocomplete="off" value="${param.query}">
 
-                    <%-- 제목 검색  --%>
+                    <%-- 제목 검색 --%>
                     <input type="hidden" name="key" value="t">
-
                     <!-- 검색 버튼 -->
                     <!-- button type="submit" 이 기본값 -->
                     <button id="searchBtn" class="fa-solid fa-magnifying-glass"></button>
@@ -128,6 +127,13 @@
 
 
         </c:forEach>
+
+        <%-- 로그인 했을 때 채팅 보여짐 --%>
+        <c:if test="${!empty loginMember}" >
+        
+            <li><a href="/chatting">채팅</a></li>
+            
+        </c:if>
 
 
     </ul>

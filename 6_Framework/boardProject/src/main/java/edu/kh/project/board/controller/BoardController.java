@@ -82,37 +82,39 @@ public class BoardController {
    // 게시글 목록 조회
    @GetMapping("/{boardCode:[0-9]+}") // boardCode는 1자리 이상 숫자
    public String selectBoardList(@PathVariable("boardCode") int  boardCode
-         , @RequestParam(value="cp",required=false, defaultValue = "1") int cp
+         , @RequestParam(value="cp",required=false,defaultValue = "1") int cp
          , Model model
-         , @RequestParam Map<String, Object> paramMap // 파라미터 전부 담겨있음
+         , @RequestParam Map<String, Object> paramMap // 파라미터 전부 다 담겨있음
          ){
-                          // 있을수도 있고 없을수도 있다 // 아니면 이거
+      // 있을수도 있고 없을수도 있다 // 아니면 이거
       // boardCode 확인
       //System.out.println("boardCode:" + boardCode );
+      
+	  if(paramMap.get("key") == null) { // 검색어가 없을 때(검색 X)
+		  	 // 게시글 목록 조회 서비스 호출
+		  
+		  
+		  // 게시글 목록 조회 서비스 호출
+		  Map<String, Object> map = service.selectBoardList(boardCode, cp);
+		  
+		  // 조회 결과를 request scope에 세팅 후 forward
+		  model.addAttribute("map", map);
+		  
+		  
+		  
+	  }else { // 검색어가 있을 때(검색 O)
+		  
+		  paramMap.put("boardCode", boardCode);
+		  
+		  Map<String, Object> map = service.selectBoardList(paramMap, cp);
+		  
+		  model.addAttribute("map", map);
+		  
+	  }
 	   
-	   if(paramMap.get("key") == null) { // 검색어가 없을 때(검색 X)
-		   // 게시글 목록 조회 서비스 호출
-		   Map<String, Object> map = service.selectBoardList(boardCode,cp);
-		   
-		   // 조회 결과를 request scope에 세팅 후 forward
-		   model.addAttribute("map", map);
-		   
-	   } else { // 검색어가 있을 때(검색O)
-		   
-		   paramMap.put("boardCode", boardCode);
-		   
-		   Map<String, Object> map = service.selectBoardList(paramMap, cp);
-		   
-		   model.addAttribute("map",map);
-		   
-	   }
-      
-      
       return "board/boardList";
    
    }
-   
-   
    // @PathVariable : 주소에 지정된 부분을 변수에 저장
    //               + request scope 세팅
    
@@ -225,7 +227,6 @@ public class BoardController {
                   result = service.updateReadCount(boardNo);
                   
                }
-               
                
             } // 3) 종료
             

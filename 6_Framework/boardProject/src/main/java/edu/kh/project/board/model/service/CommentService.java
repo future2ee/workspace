@@ -6,7 +6,6 @@ import edu.kh.project.board.model.dto.Comment;
 
 public interface CommentService {
 
-
 	/** 댓글 목록 조회
 	 * @param boardNo
 	 * @return cList
@@ -26,8 +25,7 @@ public interface CommentService {
 	int delete(int commentNo);
 
 	/** 댓글 수정
-	 * @param commentContent
-	 * @param commentNo
+	 * @param comment
 	 * @return result
 	 */
 	int update(Comment comment);

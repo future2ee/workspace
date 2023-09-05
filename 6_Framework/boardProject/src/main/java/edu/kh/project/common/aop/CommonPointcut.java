@@ -7,5 +7,5 @@ public class CommonPointcut {
 	
 	@Pointcut("execution(* edu.kh.project..*Impl*.*(..))")
 	public void serviceImplPointcut() {}
-
+	
 }

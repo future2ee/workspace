@@ -1,24 +1,24 @@
 // 댓글 목록 조회
 function selectCommentList(){
-
+    
     // REST(REpresentational State Transfer) API
-    // - 자원을 이름으로 구분(Representational) 하여
-    //   자원의 상태 (STate)를 주고 받는 것(Transfer)
-
+    // -> 자원을 이름으로 구분(Representation)하여
+    //    자원의 상태(State)를 주고 받는 것(Transfer)
+    
     // -> 주소를 명시하고
     // Http Method(GET, POST, PUT, DELETE)를 이용해
-    // 지정된 자원에 대한 CROD 진헹
+    // 지정된 자원에 대한 CRUD 진행
 
-    // Create : 생성, 삽입(POST)
-    // Read   : 조회 (GET)
-    // Update : 수정 (PUT, FETCH)
-    // Delete : 삭제 (DELETE)
+    // Create   : 생성, 삽입(POST) 
+    // Read     : 조회(GET)
+    // Update   : 수정(PUT, PETCH)
+    // Delete   : 삭제(DELETE)
 
     // 기본적으로 form 태그는 GET/POST만 지원
 
-    fetch("/comment?boardNo="+boardNo) //GET 방식은 주소에 파라미터를 담아서 전달
-    .then(response => response.json() ) // 응답 객체 -> 파싱
-    .then(cList => { // cList : 댓글 목록(객체 배열)
+    fetch("/comment?boardNo="+ boardNo) // GET 방식은 주소에 파라미터를 담아서 전달
+    .then(response => response.json())  // 응답 객체 -> 파싱
+    .then(cList => { // cList : 댓글 목록
         console.log(cList);
 
         // 화면에 출력되어 있는 댓글 목록 삭제
@@ -155,11 +155,11 @@ addComment.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이
     const data = {"commentContent" : commentContent.value,
                   "memberNo" : loginMemberNo,
                   "boardNo" : boardNo}; // JS 객체
-    fetch("/comment",{
+
+    fetch("/comment", { 
         method : "POST",
         headers : {"Content-Type" : "application/json"},
         body : JSON.stringify(data) // JS객체 -> JSON 파싱
-
     })
     .then(resp => resp.text())
     .then(result => {
@@ -188,9 +188,9 @@ function deleteComment(commentNo){
         fetch("/comment",{
             method : "DELETE",
             headers : {"Content-Type" : "application/json"},
-            body : commentNo // 값 하나 전달 시에는 JSON 필요 없음
+            body : commentNo // 값 하나 전달 시에는 JSON이 필요 없음
         })
-        .then(resp=>resp.text())
+        .then(resp => resp.text())
         .then(result => {
             if(result > 0){
                 alert("삭제되었습니다");
@@ -311,13 +311,12 @@ function updateComment(commentNo, btn){
 
     // 새로 작성된 댓글 내용 얻어오기
     const commentContent = btn.parentElement.previousElementSibling.value;
+    const data = {"commentNo" : commentNo,
+                  "commentContent" : commentContent}
 
-    const data = {"commentNo" : commentNo
-                ,"commentContent" : commentContent}
-
-    fetch("/comment",{
+    fetch("/comment", {
         method : "PUT",
-        headers : {"Content-Type" : "application/json"},
+        headers : { "Content-Type" : "application/json"},
         body : JSON.stringify(data)
     })
     .then(resp => resp.text())
@@ -417,16 +416,15 @@ function insertChildComment(parentNo, btn){
         return;
     }
 
-    const data = {"commentContent":commentContent,
+    const data = {"commentContent" : commentContent,
                   "memberNo" : loginMemberNo,
-                  "boardNo":boardNo,
-                  "parentNo" : parentNo
-                }
+                  "boardNo" : boardNo,
+                  "parentNo" : parentNo}
 
-    fetch("/comment", {
-        method : "POST",
-        headers : {"Content-Type" : "application/json"},
-        body : JSON.stringify(data) // JS객체 -> JSON 파싱
+    fetch("/comment",{
+        method: "POST",
+        headers: {"Content-Type" :  "application/json"},
+        body : JSON.stringify(data) // JSON 형태로 파싱
     })
     .then(resp => resp.text())
     .then(result => {

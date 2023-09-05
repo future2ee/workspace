@@ -1,4 +1,4 @@
-package edu.kh.project.board.model.dto;
+	package edu.kh.project.board.model.dto;
 
 public class Pagination {
    // 페이지네이션(페이징 처리)에 필요한 모든 값들을 저장하고 있는 객체

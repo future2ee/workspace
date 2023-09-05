@@ -10,18 +10,14 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class AfterAspect {
-	
+
 	private Logger logger = LoggerFactory.getLogger(AfterAspect.class);
 	
 	@Order(3)
 	@After("CommonPointcut.serviceImplPointcut()")
 	public void afterLog() {
-		
-		logger.info("-------------------------------------------------------------\n\n");
-		
-		
-		
-		
+		logger.info(("--------------------------------------------------\n\n"));
 	}
 	
+			
 }

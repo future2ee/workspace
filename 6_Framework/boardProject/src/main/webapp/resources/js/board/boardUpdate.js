@@ -9,17 +9,11 @@ const inputImage = document.getElementsByClassName("inputImage");
 // x버튼 5개
 const deleteImage = document.getElementsByClassName("delete-image");
 
-// 게시글 수정 시 삭제된 이미지의 순서를 기록 할 Set 객체 생성
-const deleteSet = new Set(); // 순서 X, 중복 X
-// -> X버튼 클릭 시 순서를 한 번만 저장하는 용도
-
-
-
-
+// 게시글 수정 시 삭제된 이미지의 순서를 기록할 Set 객체 생성
+const deleteSet = new Set(); // 순서X , 중복 X
 
 
 // -> 위에 얻어온 요소들의 개수가 같음 == 인덱스가 일치함
-
 for(let i = 0 ; i < inputImage.length ; i++){
 
     // 파일이 선택되거나, 선택 후 취소 되었을 때    
@@ -100,14 +94,11 @@ boardUpdateFrm.addEventListener("submit", e=>{
     // Array.from(deleteSet) : Set -> Array 변경
 
     // JS 배열은 string에 대입되거나 출력될 때
-    // 요소, 요소, 요소 형태의 문자열을 반환한다!
+    // 요소,요소,요소 형태의 문자열을 반환한다!
 
     document.querySelector("[name='deleteList']").value
         = Array.from(deleteSet);
 
-        //e.preventDefault(); // 확인만하고 지울 예정
+    // e.preventDefault();
 
 })
-
-
-

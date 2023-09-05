@@ -11,6 +11,14 @@ import org.springframework.stereotype.Repository;
 import edu.kh.project.board.model.dto.Board;
 import edu.kh.project.board.model.dto.Pagination;
 
+/**
+ * @author user1
+ *
+ */
+/**
+ * @author user1
+ *
+ */
 @Repository
 public class BoardDAO {
 	
@@ -99,36 +107,38 @@ public class BoardDAO {
 		return sqlSession.update("boardMapper.updateReadCount", boardNo);
 	}
 
-	/** 게시글 수 조회(검색)
+	
+	/** 게시글 수 조회 (검색)
 	 * @param paramMap
 	 * @return listCount
 	 */
 	public int getListCount(Map<String, Object> paramMap) {
-		// TODO Auto-generated method stub
+		
 		return sqlSession.selectOne("boardMapper.getListCount_search", paramMap);
 	}
 
-	/** 게시글 목록 조회(검색)
+	/** 게시글 목록 조회 (검색)
 	 * @param pagination
 	 * @param paramMap
 	 * @return boardList
 	 */
 	public List<Board> selectBoardList(Pagination pagination, Map<String, Object> paramMap) {
+		
 		// 1) offset 계산
 		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
-
+		
 		// 2) RowBounds 객체 생성
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
-
+		
 		// 3) selectList("namespace.id", 파라미터, RowBounds 호출)
 		return sqlSession.selectList("boardMapper.selectBoardList_search", paramMap, rowBounds);
+		
 	}
 
 	/** DB 이미지(파일) 목록 조회
 	 * @return list
 	 */
 	public List<String> selectImageList() {
-		
 		return sqlSession.selectList("boardMapper.selectImageListAll");
 	}
 
