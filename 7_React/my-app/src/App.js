@@ -7,6 +7,8 @@ import Ex2 from './components/Exam2';
 import PropsEx from './components/R01_props';
 import State1 from './components/R02_state1';
 import State2 from './components/R03_state2';
+import State3 from './components/R04_state3';
+import Todolist1 from './components/R05_todolist1';
 
 function App() {
   // 리액트의 컴포넌트는 딱! 하나의 요소만을 반환할 수 있다
@@ -31,7 +33,14 @@ function App() {
       {/* <State1/> */}
 
       {/* R03_state2 */}
-      <State2 init={100}/>
+      {/* <State2 init={100}/> */}
+
+      <hr/>
+      {/* R04_state3 */}
+      {/* <State3/> */}
+
+      {/* R05_todolist1 */}
+      <Todolist1/>
     </>
 
   );
