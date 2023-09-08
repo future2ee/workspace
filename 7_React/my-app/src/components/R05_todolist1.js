@@ -60,6 +60,18 @@ const Todolist1 = () =>{
         );
     };
 
+    // 체크박스 값 변경 시
+    const todoChange = (index)=>{
+        const newTodos = [...todos]; // todos를 풀어서 새로운 배열 생성
+                                     // 전개 연산자를 이용한 배열 깊은 복사
+
+        // boolean값 반대로 변경해서 대입
+        newTodos[index].completed = !newTodos[index].completed;
+
+        setTodos(newTodos);
+
+    }
+
 
     return(
         <>
@@ -69,6 +81,28 @@ const Todolist1 = () =>{
             <h1>Todo List1</h1>
             {/* 입력 */}
             <InputTodo/>
+
+            {/* 할 일 목록 */}
+            {/* 배열.map( (배열요소,인덱스) => {return 값;} ) 
+                -> 기존 배열을 이용해서 새로운 배열을 만드는 함수
+                -> 새로운 배열의 요소는 map에서 return 되는 값으로 이루어짐
+            */}
+            <ul>
+                {todos.map( (todo, index) => {
+                    return(
+                        /* key 속성 : 배열(list) 출력 시 요소르 구분하는 key 값*/ 
+                        <li key={index}>
+                        <input type='checkbox'
+                            checked={todo.completed}
+                            onChange={()=>{todoChange(index)}}
+                        />
+                        <span className={todo.completed ? 'completed' : '' }>
+                            {todo.text}
+                        </span>
+                        </li>
+                    );
+                } )}
+            </ul>
         </>
     );
 };
