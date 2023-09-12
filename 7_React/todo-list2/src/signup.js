@@ -8,6 +8,33 @@ const SignupContainer = ()=>{
     const [name, setName] = useState('');
     const [result, setResult] = useState('');
 
+    const [idValidation, setIdValidation] = useState(false);
+
+    const idCheck = (inputId)=>{
+        setId(inputId);
+
+        if(inputId.trim().length < 4){
+            setIdValidation(false);
+            return;
+        }
+
+        fetch("idCheck?id="+inputId)
+        .then(resp=>resp.text())
+        .then(result =>{
+            console.log(`result : ${result}`)
+            
+            console.log(typeof result);
+
+            if(Number(result)=== 0){
+                setIdValidation(true);
+            }else{
+                setIdValidation(false);
+            }
+        })
+        .catch(e => console.log(e))
+    }
+    
+
     const signup =() =>{
 
         if(pw !== pwCheck){
@@ -50,8 +77,12 @@ const SignupContainer = ()=>{
             <label>
                 ID:
                 <input type='text' 
-                    onChange={e=>{setId(e.target.value)}}
-                    value={id}/>
+                    onChange={e=>{
+                        idCheck(e.target.value)
+                    }}
+                    value={id}
+                    className={idValidation ? '' : 'id-error'}
+                    />
             </label>
 
             <label>
