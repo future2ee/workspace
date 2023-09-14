@@ -1,17 +1,18 @@
-import React, { useState, useContext } from 'react';
-import { TodoListContext } from './App';
+import React, { useState, useContext } from "react";
+import { TodoListContext } from "./App";
 
-const Logincomponent = ()=>{
+const LoginComponent = () => {
 
-    // 전역변수 context 사용
-    const { setTodoList, setLoginMember, loginMember } = useContext(TodoListContext);
+    // 전역변수 Context를 사용
+    const { setTodoList, setLoginMember, todoList, loginMember } = useContext(TodoListContext);
 
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
 
-    const login = ()=>{
-        fetch('/login',{
-            method : 'post',
+    const login = () => {
+
+        fetch("/login", {
+            method : "POST",
             headers : {
                 // 전달되는 데이터 타입
                 'Content-Type' : 'application/json',
@@ -25,12 +26,13 @@ const Logincomponent = ()=>{
             })
         })
         .then(resp => resp.json())
-        .then(map => {
+
+        .then( map => {
             console.log(map);
 
-            // 로그인이 실패 시
+            // 로그인 실패 시
             if(map.loginMember === null){
-                alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+                alert("아이디 또는 비밀번호가 일치하지 않습니다.");
                 return;
             }
 
@@ -38,16 +40,22 @@ const Logincomponent = ()=>{
             setLoginMember(map.loginMember);
             setTodoList(map.todoList);
 
-            setId('')
-            setPw('')
+            setId('');
+            setPw('');
 
         })
-        
+        .catch(e => console.log(e))
 
     };
 
-    const logout = ()=>{
+    const logout = () => {
+
+        
         setLoginMember(null);
+        setTodoList([]);
+
+        console.log(loginMember);
+        console.log(todoList);
     };
 
     return (
@@ -76,8 +84,8 @@ const Logincomponent = ()=>{
             {loginMember && (
                 <button onClick={logout}>로그아웃</button>
             )}
-        </div>        
+        </div>
     );
 }
 
-export default Logincomponent;
+export default LoginComponent;
